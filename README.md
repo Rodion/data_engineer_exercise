@@ -26,7 +26,7 @@ select * from xref where timestamp > :from;
 Using Airflow, you should generate an hourly CSV with new records in the `xref` table and send the file as an email.
 
 ## High level steps
-1. (Optional) Fork this [repository](https://fill_me), clone it and use it to implement the next steps (it should help you)
+1. (Optional) Fork this [repository](https://github.com/rantibi/data_engineer_exercise), clone it and use it to implement the next steps (it should help you)
 2. Install Airflow docker  
 3. Implement Airflow dag `xref_pipe_dag.py` with 2 tasks and their dependencies:
  - `query_executor` - Generate an hourly CSV with new records in the `xref` table

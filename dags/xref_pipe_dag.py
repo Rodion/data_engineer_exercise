@@ -23,12 +23,10 @@ default_args = {
 
 dag = DAG(dag_id, default_args=default_args, schedule_interval=schedule_interval)
 
-# t1, t2 and t3 are examples of tasks created by instantiating operators
-
-#query_executor = BashOperator(
-#    task_id='query_executor',
-#    bash_command='sh -c \'$EXERCISE_HOME/tasks/query_executor.sh 11/01/2019 $EXERCISE_HOME/output \'',
-#    dag=dag)
+query_executor = BashOperator(
+    task_id='query_executor',
+    bash_command='sh -c \'$EXERCISE_HOME/tasks/query_executor.sh 11/01/2019 $EXERCISE_HOME/output \'',
+    dag=dag)
 
 xref_report = BashOperator(
     task_id='xref_report',
@@ -36,4 +34,4 @@ xref_report = BashOperator(
     retries=1,
     dag=dag)
 
-# xref_report.set_upstream(query_executor)
+xref_report.set_upstream(query_executor)
